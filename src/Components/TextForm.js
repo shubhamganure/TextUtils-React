@@ -3,11 +3,29 @@ import PropTypes from "prop-types";
 
 export default function TextForm({
   heading = "Enter default text to analyze below",
+  mode,
 }) {
+  const [textUtilStyle, setTextUtilStyle] = useState({
+    backgroundColor: "white",
+    color: "black",
+  });
+
   const [text, setText] = useState("Enter random text here");
+  if (mode === "dark" && textUtilStyle.color === "black") {
+    setTextUtilStyle({
+      backgroundColor: "black",
+      color: "white",
+    });
+  } else if (mode === "light" && textUtilStyle.color === "white") {
+    setTextUtilStyle({
+      backgroundColor: "white",
+      color: "black",
+    });
+  }
+
   return (
     <div>
-      <div className="container mb-3 my-3">
+      <div style={textUtilStyle} className="container mb-3 my-3">
         <h1 className="mb-3">{heading}</h1>
         <label for="exampleFormControlTextarea1" className="form-label">
           Example textarea

@@ -6,10 +6,6 @@ export default function AboutUs({ mode }) {
     color: "black",
   });
 
-  console.log("mode", mode);
-
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
-
   if (mode === "dark" && accordianStyle.color === "black") {
     setAccordianStyle({
       backgroundColor: "black",
@@ -21,22 +17,6 @@ export default function AboutUs({ mode }) {
       color: "black",
     });
   }
-
-  const toggleStyle = () => {
-    if (accordianStyle.color === "white") {
-      setAccordianStyle({
-        backgroundColor: "white",
-        color: "black",
-      });
-      setBtnText("Enable Dark Mode");
-    } else {
-      setAccordianStyle({
-        backgroundColor: "black",
-        color: "white",
-      });
-      setBtnText("Enable Light Mode");
-    }
-  };
 
   return (
     <div>
@@ -139,13 +119,6 @@ export default function AboutUs({ mode }) {
             </div>
           </div>
         </div>
-        <button
-          type="button"
-          className="btn btn-primary my-3"
-          onClick={toggleStyle}
-        >
-          {btnText}
-        </button>
       </div>
     </div>
   );

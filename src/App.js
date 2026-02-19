@@ -34,7 +34,9 @@ function App() {
           <Route
             exact
             path="/"
-            element={<TextForm heading="Enter text to analyze below" />}
+            element={
+              <TextForm heading="Enter text to analyze below" mode={mode} />
+            }
           />
           <Route exact path="/about" element={<AboutUs mode={mode} />} />
         </Routes>
